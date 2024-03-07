@@ -9,6 +9,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-        <exec.mainClass>com.mycompany.publicom2.Publicom2</exec.mainClass>
+        <exec.mainClass>com.publicom2.vue.MainVue</exec.mainClass>
     </properties>
 </project>
