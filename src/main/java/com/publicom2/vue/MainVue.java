@@ -4,6 +4,8 @@
  */
 package com.publicom2.vue;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author a.guillauma
@@ -26,15 +28,12 @@ public class MainVue extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton3 = new javax.swing.JButton();
         labelUserList = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        tableUserList = new javax.swing.JTable();
+        buttonUpdateUser = new javax.swing.JButton();
+        buttonDeleteUser = new javax.swing.JButton();
         buttonAddUser = new javax.swing.JButton();
-
-        jButton3.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -45,30 +44,22 @@ public class MainVue extends javax.swing.JFrame {
         labelUserList.setToolTipText("");
         labelUserList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        tableUserList.setModel(new DefaultTableModel());
+        jScrollPane1.setViewportView(tableUserList);
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 153));
-        jButton1.setText("Modifier l'utilisateur");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0), 2));
+        buttonUpdateUser.setBackground(new java.awt.Color(255, 204, 153));
+        buttonUpdateUser.setText("Modifier l'utilisateur");
+        buttonUpdateUser.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 153, 0), 2, true));
+        buttonUpdateUser.setEnabled(false);
 
-        jButton2.setBackground(new java.awt.Color(255, 153, 153));
-        jButton2.setText("Supprimer l'utilisateur");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 0), 2));
+        buttonDeleteUser.setBackground(new java.awt.Color(255, 153, 153));
+        buttonDeleteUser.setText("Supprimer l'utilisateur");
+        buttonDeleteUser.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 2, true));
+        buttonDeleteUser.setEnabled(false);
 
         buttonAddUser.setBackground(new java.awt.Color(153, 255, 153));
         buttonAddUser.setText("Ajouter un nouvel utilisateur");
-        buttonAddUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 0), 2));
+        buttonAddUser.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 0), 2, true));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,25 +75,25 @@ public class MainVue extends javax.swing.JFrame {
                         .addGap(147, 147, 147)
                         .addComponent(labelUserList, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
+                        .addGap(86, 86, 86)
                         .addComponent(buttonAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                        .addGap(41, 41, 41)
+                        .addComponent(buttonUpdateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(buttonDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(labelUserList, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonUpdateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
@@ -147,11 +138,10 @@ public class MainVue extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAddUser;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton buttonDeleteUser;
+    private javax.swing.JButton buttonUpdateUser;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelUserList;
+    private javax.swing.JTable tableUserList;
     // End of variables declaration//GEN-END:variables
 }
