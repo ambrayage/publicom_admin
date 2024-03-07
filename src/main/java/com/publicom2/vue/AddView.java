@@ -55,6 +55,11 @@ public class AddView extends javax.swing.JFrame {
         jLabel4.setText("Veuillez renseigner les informations suivantes.");
 
         btnValidate.setText("Valider");
+        btnValidate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidateActionPerformed(evt);
+            }
+        });
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +140,17 @@ public class AddView extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void btnValidateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidateActionPerformed
+        //recupere le nom saisi
+        
+        //String nom = this.getNom();
+
+        //recupere le prénom saisi
+        
+        //met a jour l'interface
+        
+    }//GEN-LAST:event_btnValidateActionPerformed
 
     /**
      * @param args the command line arguments
