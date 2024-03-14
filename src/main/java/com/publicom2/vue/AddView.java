@@ -16,7 +16,16 @@ public class AddView extends javax.swing.JFrame {
     public AddView() {
         initComponents();
     }
-
+//ajout methodes getter
+        private String getNom(){
+            return this.WriteNom.getText();
+        }
+        private String getPrenom(){
+            return this.WritePrenom.getText();
+        }
+        private String getMdp(){
+            return this.WriteMdp.getText();
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,6 +43,7 @@ public class AddView extends javax.swing.JFrame {
         WritePrenom = new javax.swing.JTextField();
         WriteMdp = new javax.swing.JTextField();
         btnValider = new javax.swing.JButton();
+        btnReturn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add User");
@@ -79,10 +89,21 @@ public class AddView extends javax.swing.JFrame {
             }
         });
 
+        btnReturn.setText("Retour");
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnValider, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -98,12 +119,11 @@ public class AddView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(WritePrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(WriteNom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(WriteMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(WriteMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnReturn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnValider, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +144,9 @@ public class AddView extends javax.swing.JFrame {
                     .addComponent(WriteMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59)
                 .addComponent(btnValider, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                .addGap(10, 10, 10)
+                .addComponent(btnReturn)
+                .addContainerGap())
         );
 
         pack();
@@ -147,7 +169,17 @@ public class AddView extends javax.swing.JFrame {
             String nom = this.getNom();
             String prenom = this.getPrenom();
             String mdp = this.getMdp();
+            
+            //on demande au modèle d'insérer ce nom en base
+            nom = new NOMUTILISATEUR(nom);
+            prenom = new PRENOMUTILISATEUR(prenom);
+            mdp = new MOTDEPASSEUTILISATEUR(mdp);
     }//GEN-LAST:event_btnValiderActionPerformed
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        this.dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,6 +225,7 @@ public class AddView extends javax.swing.JFrame {
     private javax.swing.JTextField WriteMdp;
     private javax.swing.JTextField WriteNom;
     private javax.swing.JTextField WritePrenom;
+    private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnValider;
     private javax.swing.JLabel txtDemande;
     private javax.swing.JLabel txtMdp;
