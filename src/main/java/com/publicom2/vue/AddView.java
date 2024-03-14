@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.publicom2.vue;
+import com.publicom2.controller.AddViewController;
 
 /**
  *
@@ -10,11 +11,11 @@ package com.publicom2.vue;
  */
 public class AddView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AddView
-     */
+    private AddViewController controller;
+    
     public AddView() {
         initComponents();
+        this.controller = new AddViewController(this);
     }
 //ajout methodes getter
         private String getNom(){
@@ -178,8 +179,7 @@ public class AddView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnValiderActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        this.dispose();
-// TODO add your handling code here:
+        this.controller.backToMainView();
     }//GEN-LAST:event_btnReturnActionPerformed
 
     /**

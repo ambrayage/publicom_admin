@@ -3,24 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.publicom2.controller;
-import com.publicom2.vue.AddView;
+import com.publicom2.vue.UpdateUser;
 import com.publicom2.vue.MainVue;
 
 /**
  *
  * @author a.guillauma
  */
-public class AddViewController {
+public class UpdateViewController {
     
-    private AddView addView;
+    private UpdateUser updateView;
     
-    public AddViewController(AddView addView){
-        this.addView = addView;
+    public UpdateViewController(UpdateUser updateView){
+        this.updateView = updateView;
     }
     
     public void backToMainView(){
         MainVue mainView = new MainVue();
         mainView.setVisible(true);
-        this.addView.dispose();
+        this.updateView.dispose();
     }
 }

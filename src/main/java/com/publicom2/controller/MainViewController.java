@@ -26,19 +26,19 @@ public class MainViewController {
         //this.dao = new UtilisateurDAO();
     }
     
-    public void GoToAddView(){
+    public void goToAddView(){
         AddView addView = new AddView();
         addView.setVisible(true);
         this.mainVue.dispose();
     }
     
-    public void GoToUpdateView(){
+    public void goToUpdateView(){
         UpdateUser updateView = new UpdateUser();
         updateView.setVisible(true);
         this.mainVue.dispose();
     }
     
-    public void GoToDeleteDialog(){
+    public void goToDeleteDialog(){
         DeleteUserDialog deleteUserDialog = new DeleteUserDialog(this.mainVue, true);
         deleteUserDialog.setVisible(true);
     }

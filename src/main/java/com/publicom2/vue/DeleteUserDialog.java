@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package com.publicom2.vue;
+import com.publicom2.controller.DeleteDialogController;
 
 /**
  *
@@ -10,11 +11,11 @@ package com.publicom2.vue;
  */
 public class DeleteUserDialog extends javax.swing.JDialog {
 
-    /**
-     * Creates new form DeleteUserDialog
-     */
+    private DeleteDialogController controller;
+    
     public DeleteUserDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.controller = new DeleteDialogController(this);
         initComponents();
     }
 
@@ -50,6 +51,11 @@ public class DeleteUserDialog extends javax.swing.JDialog {
 
         buttonCancelDelete.setBackground(new java.awt.Color(255, 0, 0));
         buttonCancelDelete.setText("Annuler");
+        buttonCancelDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonCancelDeleteMouseClicked(evt);
+            }
+        });
         buttonCancelDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelDeleteActionPerformed(evt);
@@ -114,6 +120,10 @@ public class DeleteUserDialog extends javax.swing.JDialog {
     private void buttonValidDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonValidDeleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonValidDeleteActionPerformed
+
+    private void buttonCancelDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCancelDeleteMouseClicked
+        this.controller.closeDeleteDialog();
+    }//GEN-LAST:event_buttonCancelDeleteMouseClicked
 
     /**
      * @param args the command line arguments
