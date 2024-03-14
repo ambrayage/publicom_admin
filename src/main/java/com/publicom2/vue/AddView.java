@@ -171,9 +171,10 @@ public class AddView extends javax.swing.JFrame {
             String mdp = this.getMdp();
             
             //on demande au modèle d'insérer ce nom en base
-            nom = new NOMUTILISATEUR(nom);
-            prenom = new PRENOMUTILISATEUR(prenom);
-            mdp = new MOTDEPASSEUTILISATEUR(mdp);
+            
+            //nom = new NOMUTILISATEUR(nom);
+            //prenom = new PRENOMUTILISATEUR(prenom);
+            //mdp = new MOTDEPASSEUTILISATEUR(mdp);
     }//GEN-LAST:event_btnValiderActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
