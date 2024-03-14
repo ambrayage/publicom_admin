@@ -68,6 +68,11 @@ public class MainVue extends javax.swing.JFrame {
         buttonDeleteUser.setText("Supprimer l'utilisateur");
         buttonDeleteUser.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 0, 0), 2, true));
         buttonDeleteUser.setEnabled(false);
+        buttonDeleteUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonDeleteUserMouseClicked(evt);
+            }
+        });
 
         buttonAddUser.setBackground(new java.awt.Color(153, 255, 153));
         buttonAddUser.setText("Ajouter un nouvel utilisateur");
@@ -132,6 +137,10 @@ public class MainVue extends javax.swing.JFrame {
     private void buttonUpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonUpdateUserActionPerformed
+
+    private void buttonDeleteUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonDeleteUserMouseClicked
+        this.controller.GoToDeleteDialog();
+    }//GEN-LAST:event_buttonDeleteUserMouseClicked
 
     /**
      * @param args the command line arguments

@@ -9,6 +9,7 @@ import publicom2.model.Utilisateur;
 import com.publicom2.vue.MainVue;
 import com.publicom2.vue.AddView;
 import com.publicom2.vue.UpdateUser;
+import com.publicom2.vue.DeleteUserDialog;
 /**
  *
  * @author a.guillauma
@@ -22,18 +23,23 @@ public class MainViewController {
     //Constructeur
     public MainViewController(MainVue mainVue){
         this.mainVue = mainVue;
-        this.dao = new UtilisateurDAO();
+        //this.dao = new UtilisateurDAO();
     }
     
     public void GoToAddView(){
-        this.mainVue.setVisible(false);
         AddView addView = new AddView();
         addView.setVisible(true);
+        this.mainVue.dispose();
     }
     
     public void GoToUpdateView(){
-        this.mainVue.setVisible(false);
         UpdateUser updateView = new UpdateUser();
         updateView.setVisible(true);
+        this.mainVue.dispose();
+    }
+    
+    public void GoToDeleteDialog(){
+        DeleteUserDialog deleteUserDialog = new DeleteUserDialog(this.mainVue, true);
+        deleteUserDialog.setVisible(true);
     }
 }

@@ -27,52 +27,93 @@ public class DeleteUserDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        label1 = new java.awt.Label();
-        label2 = new java.awt.Label();
-        label3 = new java.awt.Label();
+        labelDeleteUser1 = new java.awt.Label();
+        labelDeleteUser2 = new java.awt.Label();
+        labelDeleteUser3 = new java.awt.Label();
+        buttonCancelDelete = new javax.swing.JButton();
+        buttonValidDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        label1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        label1.setText("Voulez-vous vraiment supprimer");
+        labelDeleteUser1.setAlignment(java.awt.Label.CENTER);
+        labelDeleteUser1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        labelDeleteUser1.setText("Voulez-vous vraiment supprimer");
 
-        label2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        label2.setForeground(new java.awt.Color(255, 0, 51));
-        label2.setText("définitivement");
+        labelDeleteUser2.setAlignment(java.awt.Label.CENTER);
+        labelDeleteUser2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        labelDeleteUser2.setForeground(new java.awt.Color(255, 0, 51));
+        labelDeleteUser2.setText("définitivement");
 
-        label3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        label3.setText("l'utilisateur <nom>");
+        labelDeleteUser3.setAlignment(java.awt.Label.CENTER);
+        labelDeleteUser3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        labelDeleteUser3.setText("l'utilisateur <nom> ?");
+
+        buttonCancelDelete.setBackground(new java.awt.Color(255, 0, 0));
+        buttonCancelDelete.setText("Annuler");
+        buttonCancelDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelDeleteActionPerformed(evt);
+            }
+        });
+
+        buttonValidDelete.setBackground(new java.awt.Color(51, 255, 51));
+        buttonValidDelete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonValidDelete.setText("Valider");
+        buttonValidDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonValidDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(126, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelDeleteUser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(112, 112, 112))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(171, 171, 171))))
+                        .addComponent(labelDeleteUser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(162, 162, 162))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(labelDeleteUser3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(141, 141, 141))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(buttonValidDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133)
+                .addComponent(buttonCancelDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelDeleteUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addComponent(labelDeleteUser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelDeleteUser3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonCancelDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonValidDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonCancelDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonCancelDeleteActionPerformed
+
+    private void buttonValidDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonValidDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonValidDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,8 +158,10 @@ public class DeleteUserDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Label label1;
-    private java.awt.Label label2;
-    private java.awt.Label label3;
+    private javax.swing.JButton buttonCancelDelete;
+    private javax.swing.JButton buttonValidDelete;
+    private java.awt.Label labelDeleteUser1;
+    private java.awt.Label labelDeleteUser2;
+    private java.awt.Label labelDeleteUser3;
     // End of variables declaration//GEN-END:variables
 }
