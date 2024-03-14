@@ -4,8 +4,13 @@
  */
 package com.publicom2.vue;
 
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import com.publicom2.controller.MainViewController;
+import publicom2.model.Utilisateur;
+import publicom2.model.UtilisateurDAO;
 
 /**
  *
@@ -13,12 +18,14 @@ import com.publicom2.controller.MainViewController;
  */
 public class MainVue extends javax.swing.JFrame {
 
+    /**
+     * Creates new form MainVue
+     */
     private MainViewController controller;
-    
-    public MainVue() {
+
+    public MainVue() throws Exception {
         initComponents();
-        //Controlleur
-        this.controller = new MainViewController(this);
+        this.controller = new MainViewController( this);
     }
 
     /**
@@ -128,8 +135,7 @@ public class MainVue extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAddUserMouseClicked
 
     private void buttonUpdateUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonUpdateUserMouseClicked
-        if (this.buttonUpdateUser.isEnabled())
-        {
+        if (this.buttonUpdateUser.isEnabled()) {
             this.controller.goToUpdateView();
         }
     }//GEN-LAST:event_buttonUpdateUserMouseClicked
@@ -172,7 +178,11 @@ public class MainVue extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainVue().setVisible(true);
+                try {
+                    new MainVue().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(MainVue.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
