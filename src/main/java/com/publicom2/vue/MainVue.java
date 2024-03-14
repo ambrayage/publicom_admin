@@ -5,6 +5,7 @@
 package com.publicom2.vue;
 
 import javax.swing.table.DefaultTableModel;
+import com.publicom2.controller.MainViewController;
 
 /**
  *
@@ -12,11 +13,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MainVue extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainVue
-     */
+    private MainViewController controller;
+    
     public MainVue() {
         initComponents();
+        //Controlleur
+        this.controller = new MainViewController(this);
     }
 
     /**
@@ -51,6 +53,16 @@ public class MainVue extends javax.swing.JFrame {
         buttonUpdateUser.setText("Modifier l'utilisateur");
         buttonUpdateUser.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 153, 0), 2, true));
         buttonUpdateUser.setEnabled(false);
+        buttonUpdateUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonUpdateUserMouseClicked(evt);
+            }
+        });
+        buttonUpdateUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUpdateUserActionPerformed(evt);
+            }
+        });
 
         buttonDeleteUser.setBackground(new java.awt.Color(255, 153, 153));
         buttonDeleteUser.setText("Supprimer l'utilisateur");
@@ -60,6 +72,11 @@ public class MainVue extends javax.swing.JFrame {
         buttonAddUser.setBackground(new java.awt.Color(153, 255, 153));
         buttonAddUser.setText("Ajouter un nouvel utilisateur");
         buttonAddUser.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 0), 2, true));
+        buttonAddUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonAddUserMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,6 +117,21 @@ public class MainVue extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonAddUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonAddUserMouseClicked
+        this.controller.GoToAddView();
+    }//GEN-LAST:event_buttonAddUserMouseClicked
+
+    private void buttonUpdateUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonUpdateUserMouseClicked
+        if (this.buttonUpdateUser.isEnabled())
+        {
+            this.controller.GoToUpdateView();
+        }
+    }//GEN-LAST:event_buttonUpdateUserMouseClicked
+
+    private void buttonUpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonUpdateUserActionPerformed
 
     /**
      * @param args the command line arguments

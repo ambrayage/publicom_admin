@@ -113,6 +113,10 @@
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonUpdateUserMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUpdateUserActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonDeleteUser">
       <Properties>
@@ -144,6 +148,9 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonAddUserMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
