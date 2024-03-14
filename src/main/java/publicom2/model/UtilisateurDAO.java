@@ -4,10 +4,27 @@
  */
 package publicom2.model;
 
+import java.sql.Connection;
+
 /**
  *
  * @author l.blee
  */
 public class UtilisateurDAO {
+
+    private Connection connexion;
+
+    public UtilisateurDAO() throws Exception {
+
+        this.connexion = MySQLConnection.getConnexion();
+
+    }
     
+   // public Utilisateur create(Utilisateur oneUser) {
+        
+        
+    //}
+    
+    
+
 }
