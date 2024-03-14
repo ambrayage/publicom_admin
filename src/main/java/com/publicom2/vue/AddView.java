@@ -4,6 +4,8 @@
  */
 package com.publicom2.vue;
 import com.publicom2.controller.AddViewController;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -179,7 +181,11 @@ public class AddView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnValiderActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        this.controller.backToMainView();
+        try {
+            this.controller.backToMainView();
+        } catch (Exception ex) {
+            Logger.getLogger(AddView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnReturnActionPerformed
 
     /**

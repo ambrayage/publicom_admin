@@ -18,7 +18,7 @@ public class AddViewController {
         this.addView = addView;
     }
     
-    public void backToMainView(){
+    public void backToMainView() throws Exception{
         MainVue mainView = new MainVue();
         mainView.setVisible(true);
         this.addView.dispose();

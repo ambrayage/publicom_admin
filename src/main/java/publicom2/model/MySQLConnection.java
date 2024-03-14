@@ -26,7 +26,7 @@ public class MySQLConnection {
         
         if(con == null){
             try {
-                Class.forName("com.mysql.cj.jbc.Driver");
+               // Class.forName("com.mysql.cj.jbc.Driver");
                 con = DriverManager.getConnection(url, user, pass);
             } catch (Exception ex){
                 Logger.getLogger(MySQLConnection.class.getName()).log(Level.SEVERE, null, ex);

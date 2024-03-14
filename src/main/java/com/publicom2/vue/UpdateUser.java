@@ -4,6 +4,8 @@
  */
 package com.publicom2.vue;
 import com.publicom2.controller.UpdateViewController;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -142,7 +144,11 @@ public class UpdateUser extends javax.swing.JFrame {
     }//GEN-LAST:event_tfFirstname2ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        this.controller.backToMainView();
+        try {
+            this.controller.backToMainView();
+        } catch (Exception ex) {
+            Logger.getLogger(UpdateUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**

@@ -18,7 +18,7 @@ public class UpdateViewController {
         this.updateView = updateView;
     }
     
-    public void backToMainView(){
+    public void backToMainView() throws Exception{
         MainVue mainView = new MainVue();
         mainView.setVisible(true);
         this.updateView.dispose();
