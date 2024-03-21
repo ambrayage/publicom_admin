@@ -10,7 +10,6 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import com.publicom2.controller.MainViewController;
 import publicom2.model.Utilisateur;
-import publicom2.model.UtilisateurDAO;
 
 /**
  *
@@ -22,18 +21,18 @@ public class MainVue extends javax.swing.JFrame {
      * Creates new form MainVue
      */
     private MainViewController controller;
-    private UtilisateurDAO daoUser;
     private DefaultTableModel modelTable;
 
     public MainVue() throws Exception {
         initComponents();
+        //Instance du controlleur
         this.controller = new MainViewController( this);
-        this.daoUser = new UtilisateurDAO();
+        //Liste des utilisateurs
         this.modelTable = (DefaultTableModel)this.tableUserList.getModel();
         this.modelTable.addColumn("Identifiant");
         this.modelTable.addColumn("Nom");
         this.modelTable.addColumn("Prenom");
-        for (Utilisateur user : this.daoUser.getAll()){
+        for (Utilisateur user : this.controller.listUser()){
             this.modelTable.addRow(new String[] {user.getUsernameUser(), user.getFirstNameUser(), user.getNameUser()});
 
         }

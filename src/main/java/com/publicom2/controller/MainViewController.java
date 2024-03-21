@@ -10,6 +10,7 @@ import com.publicom2.vue.MainVue;
 import com.publicom2.vue.AddView;
 import com.publicom2.vue.UpdateUser;
 import com.publicom2.vue.DeleteUserDialog;
+import java.util.List;
 /**
  *
  * @author a.guillauma
@@ -57,5 +58,9 @@ public class MainViewController {
     public void goToDeleteDialog(){
         DeleteUserDialog deleteUserDialog = new DeleteUserDialog(this.mainVue, true);
         deleteUserDialog.setVisible(true);
+    }
+    
+    public List<Utilisateur> listUser() throws Exception{
+        return this.dao.getAll();
     }
 }
