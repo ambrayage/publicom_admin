@@ -24,6 +24,9 @@ public class MainViewController {
     private MainVue mainVue;
     
     //Constructeur
+    /* Paramètre :
+        mainView : vue de la liste des utilisateurs
+    */
     public MainViewController(MainVue mainVue){
         this.mainVue = mainVue;
         try

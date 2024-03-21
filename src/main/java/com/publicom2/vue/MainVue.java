@@ -22,7 +22,9 @@ public class MainVue extends javax.swing.JFrame {
     /**
      * Creates new form MainVue
      */
+    //Controlleur de cette vue
     private MainViewController controller;
+    //Modèle de la table de la liste des utilisateurs
     private DefaultTableModel modelTable;
 
     public MainVue() throws Exception{
@@ -60,7 +62,7 @@ public class MainVue extends javax.swing.JFrame {
             public void valueChanged(ListSelectionEvent e){
                 //Si aucune ligne n'est selectionnée
                 if(modelTableSelection.isSelectionEmpty()){
-                    //..Desactivé les boutons modifier et suppression
+                    //..Desactiver les boutons modifier et suppression
                     buttonUpdateUser.setEnabled(false);
                     buttonDeleteUser.setEnabled(false);
                 }

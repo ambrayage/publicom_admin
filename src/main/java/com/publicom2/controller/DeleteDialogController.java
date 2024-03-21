@@ -11,13 +11,19 @@ import com.publicom2.vue.DeleteUserDialog;
  */
 public class DeleteDialogController {
     
+    //Vue pour supprimer un utilisateur
     private DeleteUserDialog deleteUserDialog;
     
+    //Constructeur
+    /* Paramètre :
+        deleteView : dialogue de suppression d'un utilisateur
+    */
     public DeleteDialogController(DeleteUserDialog deleteUserDialog){
         this.deleteUserDialog = deleteUserDialog;
     }
     
     public void closeDeleteDialog(){
+        //Supprimer le dialogue de suppression d'un utilisateur
         this.deleteUserDialog.dispose();
     }
 }

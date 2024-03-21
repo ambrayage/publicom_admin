@@ -14,18 +14,30 @@ import publicom2.model.UtilisateurDAO;
  */
 public class AddViewController {
     
+    //Vue pour ajouter un utilisateur
     private AddView addView;
     
+    //Constructeur
+    /* Paramètre :
+        addView : vue d'ajout d'un utilisateur
+    */
     public AddViewController(AddView addView){
         this.addView = addView;
     }
     
     public void backToMainView() throws Exception{
+        //Créer la fenêtre de liste des utilisateurs
         MainVue mainView = new MainVue();
+        //Rend visible la liste des utilisateurs
         mainView.setVisible(true);
+        //Supprime la fenêtre d'ajout d'un utilisateur
         this.addView.dispose();
     }
     
+    //Appelle la classe DAO pour ajouté un nouvel utilisateur
+    /* Paramètre :
+        oneUser : objet Utilisateur contenant toutes les informations du nouvel utilisateur
+    */
     public void addUser(Utilisateur oneUser) throws Exception{
         
         UtilisateurDAO dao = new UtilisateurDAO();

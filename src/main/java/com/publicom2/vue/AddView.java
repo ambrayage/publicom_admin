@@ -16,22 +16,29 @@ import publicom2.model.UtilisateurDAO;
  */
 public class AddView extends javax.swing.JFrame {
 
+    //Controlleur de cette vue
     private AddViewController controller;
 
+    //Constructeur
     public AddView() {
+        //Initialise les composants de la vue
         initComponents();
+        //Instance du controlleur
         this.controller = new AddViewController(this);
     }
 //ajout methodes getter
 
+    //Retourne le nom du nouvel utilisateur
     private String getNom() {
         return this.WriteNom.getText();
     }
 
+    //Retourne le prenom du nouvel utilisateur
     private String getPrenom() {
         return this.WritePrenom.getText();
     }
 
+    //Retourne le mot de passe du nouvel utilisateur
     private String getMdp() {
         return this.WriteMdp.getText();
     }
@@ -177,12 +184,16 @@ public class AddView extends javax.swing.JFrame {
     private void btnValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderActionPerformed
         //on récupère le nom saisi par l'utilisateur
         String name = this.getNom();
+        //Récupère le prenom du nouvel utilisateur
         String firstName = this.getPrenom();
+        //Créer l'identifiant du nouvel utilisateur sous le format : nom.prenom
         String username = firstName + "." + name;
+        //Récupère le mot de passe du nouvel utilisateur
         String password = this.getMdp();
-
+        //Création d'un objet Utilisateur représentant le nouvel utilisateur
+        //Avec le nouvel identifiant, nom, prenom et mot de passe
         Utilisateur user = new Utilisateur(username, password, name, firstName);
-
+        
         AddViewController controller = new AddViewController(this);
 
         try {
