@@ -23,7 +23,23 @@ public class MainViewController {
     //Constructeur
     public MainViewController(MainVue mainVue){
         this.mainVue = mainVue;
-        //this.dao = new UtilisateurDAO();
+        try
+        {
+        this.dao = new UtilisateurDAO();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
+    public void addsUserTableUserMainView(){
+        try{
+            for (Utilisateur utilisateur : this.dao.getAll()){
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
     
     public void goToAddView(){

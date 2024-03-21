@@ -22,10 +22,25 @@ public class MainVue extends javax.swing.JFrame {
      * Creates new form MainVue
      */
     private MainViewController controller;
+    private UtilisateurDAO daoUser;
+    private DefaultTableModel modelTable;
 
     public MainVue() throws Exception {
         initComponents();
         this.controller = new MainViewController( this);
+        this.daoUser = new UtilisateurDAO();
+        this.modelTable = (DefaultTableModel)this.tableUserList.getModel();
+        this.modelTable.addColumn("Identifiant");
+        this.modelTable.addColumn("Nom");
+        this.modelTable.addColumn("Prenom");
+        for (Utilisateur user : this.daoUser.getAll()){
+            this.modelTable.addRow(new String[] {user.getUsernameUser(), user.getFirstNameUser(), user.getNameUser()});
+
+        }
+    }
+    
+    public void addUserTableUser(){
+        
     }
 
     /**
@@ -135,6 +150,7 @@ public class MainVue extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAddUserMouseClicked
 
     private void buttonUpdateUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonUpdateUserMouseClicked
+        //Si le bouton est activé
         if (this.buttonUpdateUser.isEnabled()) {
             this.controller.goToUpdateView();
         }
@@ -145,7 +161,11 @@ public class MainVue extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonUpdateUserActionPerformed
 
     private void buttonDeleteUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonDeleteUserMouseClicked
-        this.controller.goToDeleteDialog();
+        //Si le bouton est activé
+        if (this.buttonDeleteUser.isEnabled()){
+            this.controller.goToDeleteDialog();
+        }
+        
     }//GEN-LAST:event_buttonDeleteUserMouseClicked
 
     /**
