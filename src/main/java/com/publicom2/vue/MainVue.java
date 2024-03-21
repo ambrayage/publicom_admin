@@ -54,14 +54,19 @@ public class MainVue extends javax.swing.JFrame {
         //Evenement Selection des lignes
         //Récupération du modèle de selection de la table
         var modelTableSelection = this.tableUserList.getSelectionModel();
-        //Ajout 
+        //Ajout d'un évenement au modèle de selection de la table
         modelTableSelection.addListSelectionListener(new ListSelectionListener(){
+            //Fonction appelée lors de l'activation de l'évenement
             public void valueChanged(ListSelectionEvent e){
+                //Si aucune ligne n'est selectionnée
                 if(modelTableSelection.isSelectionEmpty()){
+                    //..Desactivé les boutons modifier et suppression
                     buttonUpdateUser.setEnabled(false);
                     buttonDeleteUser.setEnabled(false);
                 }
+                //Sinon
                 else{
+                    //..Activer les boutons modifier et suppression
                     buttonUpdateUser.setEnabled(true);
                     buttonDeleteUser.setEnabled(true);
                 }
