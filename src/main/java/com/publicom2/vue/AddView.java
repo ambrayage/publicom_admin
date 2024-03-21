@@ -3,9 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.publicom2.vue;
+
 import com.publicom2.controller.AddViewController;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import publicom2.model.Utilisateur;
+import publicom2.model.UtilisateurDAO;
 
 /**
  *
@@ -14,21 +17,25 @@ import java.util.logging.Logger;
 public class AddView extends javax.swing.JFrame {
 
     private AddViewController controller;
-    
+
     public AddView() {
         initComponents();
         this.controller = new AddViewController(this);
     }
 //ajout methodes getter
-        private String getNom(){
-            return this.WriteNom.getText();
-        }
-        private String getPrenom(){
-            return this.WritePrenom.getText();
-        }
-        private String getMdp(){
-            return this.WriteMdp.getText();
-        }
+
+    private String getNom() {
+        return this.WriteNom.getText();
+    }
+
+    private String getPrenom() {
+        return this.WritePrenom.getText();
+    }
+
+    private String getMdp() {
+        return this.WriteMdp.getText();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -168,16 +175,21 @@ public class AddView extends javax.swing.JFrame {
     }//GEN-LAST:event_WriteMdpActionPerformed
 
     private void btnValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderActionPerformed
-            //on récupère le nom saisi par l'utilisateur
-            String nom = this.getNom();
-            String prenom = this.getPrenom();
-            String mdp = this.getMdp();
-            
-            //on demande au modèle d'insérer ce nom en base
-            
-            //nom = new NOMUTILISATEUR(nom);
-            //prenom = new PRENOMUTILISATEUR(prenom);
-            //mdp = new MOTDEPASSEUTILISATEUR(mdp);
+        //on récupère le nom saisi par l'utilisateur
+        String name = this.getNom();
+        String firstName = this.getPrenom();
+        String username = firstName + "." + name;
+        String password = this.getMdp();
+
+        Utilisateur user = new Utilisateur(username, password, name, firstName);
+
+        AddViewController controller = new AddViewController(this);
+
+        try {
+            controller.addUser(user);
+        } catch (Exception ex) {
+            Logger.getLogger(AddView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnValiderActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
@@ -221,10 +233,6 @@ public class AddView extends javax.swing.JFrame {
                 new AddView().setVisible(true);
             }
         });
-                    
-    
-       
-
 
     }
 

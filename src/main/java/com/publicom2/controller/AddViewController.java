@@ -5,6 +5,8 @@
 package com.publicom2.controller;
 import com.publicom2.vue.AddView;
 import com.publicom2.vue.MainVue;
+import publicom2.model.Utilisateur;
+import publicom2.model.UtilisateurDAO;
 
 /**
  *
@@ -22,5 +24,13 @@ public class AddViewController {
         MainVue mainView = new MainVue();
         mainView.setVisible(true);
         this.addView.dispose();
+    }
+    
+    public void addUser(Utilisateur oneUser) throws Exception{
+        
+        UtilisateurDAO dao = new UtilisateurDAO();
+        
+        dao.create(oneUser);
+        
     }
 }
