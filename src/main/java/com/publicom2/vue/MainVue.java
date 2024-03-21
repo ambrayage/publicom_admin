@@ -26,6 +26,7 @@ public class MainVue extends javax.swing.JFrame {
     private DefaultTableModel modelTable;
 
     public MainVue() throws Exception{
+        //Initialise les composants de la vue
         initComponents();
         //Instance du controlleur
         this.controller = new MainViewController( this);
@@ -46,7 +47,6 @@ public class MainVue extends javax.swing.JFrame {
         //Ajoute les lignes
         for (Utilisateur user : this.controller.listUser()){
             this.modelTable.addRow(new String[] {user.getUsernameUser(), user.getFirstNameUser(), user.getNameUser()});
-
         }
     }
     

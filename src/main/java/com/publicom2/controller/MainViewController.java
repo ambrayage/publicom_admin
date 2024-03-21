@@ -18,7 +18,9 @@ import java.util.List;
 public class MainViewController {
     
     //Variable
+    //DAO de la utilisateur
     private UtilisateurDAO dao;
+    //Vue de la liste des utilisateurs
     private MainVue mainVue;
     
     //Constructeur
@@ -44,23 +46,32 @@ public class MainViewController {
     }
     
     public void goToAddView(){
+        //Créer la fenêtre d'ajout d'un utilisateur
         AddView addView = new AddView();
+        //Rend visible la fenêtre d'ajout d'un utilisateur
         addView.setVisible(true);
+        //Supprime la fenêtre précédente
         this.mainVue.dispose();
     }
     
     public void goToUpdateView(){
+        //Créer la fenêtre de modification d'un utilisateur
         UpdateUser updateView = new UpdateUser();
+        //Rend visible la fenêtre de modification d'un utilisateur
         updateView.setVisible(true);
+        //Supprime la fenêtre précédente
         this.mainVue.dispose();
     }
     
     public void goToDeleteDialog(){
+        //Créer le dialogue de suppression d'un utilisateur
         DeleteUserDialog deleteUserDialog = new DeleteUserDialog(this.mainVue, true);
+        //Affiche le dialogue
         deleteUserDialog.setVisible(true);
     }
     
     public List<Utilisateur> listUser() throws Exception{
+        //Renvoie la liste des utilisateurs à la vue
         return this.dao.getAll();
     }
 }
