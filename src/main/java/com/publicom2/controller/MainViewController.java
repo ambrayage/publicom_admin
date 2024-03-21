@@ -59,18 +59,20 @@ public class MainViewController {
     
     public void goToUpdateView(){
         //Créer la fenêtre de modification d'un utilisateur
-        UpdateUser updateView = new UpdateUser();
+        UpdateUser updateView = new UpdateUser(this.mainVue.getSelectedUser());
         //Rend visible la fenêtre de modification d'un utilisateur
         updateView.setVisible(true);
         //Supprime la fenêtre précédente
         this.mainVue.dispose();
     }
     
-    public void goToDeleteDialog(){
+    public void goToDeleteDialog() throws Exception{
         //Créer le dialogue de suppression d'un utilisateur
         DeleteUserDialog deleteUserDialog = new DeleteUserDialog(this.mainVue, true);
         //Affiche le dialogue
         deleteUserDialog.setVisible(true);
+        
+        this.mainVue.addUserTableUser();
     }
     
     public List<Utilisateur> listUser() throws Exception{

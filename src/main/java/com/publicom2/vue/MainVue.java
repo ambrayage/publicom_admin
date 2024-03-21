@@ -32,6 +32,13 @@ public class MainVue extends javax.swing.JFrame {
         initComponents();
         //Instance du controlleur
         this.controller = new MainViewController( this);
+        //Model de la table
+        this.modelTable = (DefaultTableModel)this.tableUserList.getModel();
+        //Initialise les colonnes de la table
+        this.modelTable.addColumn("ID");
+        this.modelTable.addColumn("Identifiant");
+        this.modelTable.addColumn("Nom");
+        this.modelTable.addColumn("Prenom");
         //Ajoute les utilisateurs
         this.addUserTableUser();
         //Initialise les évenements de selection de la table
@@ -40,15 +47,10 @@ public class MainVue extends javax.swing.JFrame {
     }
     
     public void addUserTableUser() throws Exception{
-        //Liste des utilisateurs
-        this.modelTable = (DefaultTableModel)this.tableUserList.getModel();
-        //Initialise les colonnes de la table
-        this.modelTable.addColumn("Identifiant");
-        this.modelTable.addColumn("Nom");
-        this.modelTable.addColumn("Prenom");
+        this.modelTable.setRowCount(0);
         //Ajoute les lignes
         for (Utilisateur user : this.controller.listUser()){
-            this.modelTable.addRow(new String[] {user.getUsernameUser(), user.getFirstNameUser(), user.getNameUser()});
+            this.modelTable.addRow(new String[] {Integer.toString(user.getIdUser()),user.getUsernameUser(), user.getFirstNameUser(), user.getNameUser()});
         }
     }
     
@@ -142,10 +144,6 @@ public class MainVue extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -159,15 +157,19 @@ public class MainVue extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addComponent(buttonDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(122, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(161, 161, 161))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(labelUserList, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonUpdateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,11 +198,24 @@ public class MainVue extends javax.swing.JFrame {
     private void buttonDeleteUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonDeleteUserMouseClicked
         //Si le bouton est activé
         if (this.buttonDeleteUser.isEnabled()){
+            try{
             this.controller.goToDeleteDialog();
+            }
+            catch(Exception exception){
+                
+            }
         }
         
     }//GEN-LAST:event_buttonDeleteUserMouseClicked
-
+    
+    public Utilisateur getSelectedUser(){
+        int id =  Integer.parseInt(this.modelTable.getValueAt(this.tableUserList.getSelectedRow(), 0).toString());
+        String identifiant =  this.modelTable.getValueAt(this.tableUserList.getSelectedRow(), 1).toString();
+        String nom =  this.modelTable.getValueAt(this.tableUserList.getSelectedRow(), 2).toString();
+        String prenom =  this.modelTable.getValueAt(this.tableUserList.getSelectedRow(), 3).toString();
+        
+        return new Utilisateur(id,identifiant,null, nom, prenom);
+    }
     /**
      * @param args the command line arguments
      */

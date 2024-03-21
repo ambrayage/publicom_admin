@@ -6,6 +6,7 @@ package com.publicom2.vue;
 import com.publicom2.controller.UpdateViewController;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import publicom2.model.Utilisateur;
 
 /**
  *
@@ -14,10 +15,16 @@ import java.util.logging.Logger;
 public class UpdateUser extends javax.swing.JFrame {
 
     private UpdateViewController controller;
+    private Utilisateur userUpdate;
     
-    public UpdateUser() {
-        this.controller = new UpdateViewController(this);
+    public UpdateUser(Utilisateur userUpdate) {
         initComponents();
+        this.controller = new UpdateViewController(this);
+        this.userUpdate = userUpdate;
+        this.jLabel1.setText(("Modifier l'utilisateur " + this.userUpdate.getUsernameUser()));
+        this.tfFirstname.setText(this.userUpdate.getUsernameUser());
+        this.tfFirstname1.setText(this.userUpdate.getFirstNameUser());
+        this.tfFirstname2.setText(this.userUpdate.getNameUser());
     }
 
     /**
@@ -181,7 +188,7 @@ public class UpdateUser extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UpdateUser().setVisible(true);
+                //new UpdateUser().setVisible(true);
             }
         });
     }

@@ -122,6 +122,7 @@
         <Property name="text" type="java.lang.String" value="Valider"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonValidDeleteMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonValidDeleteActionPerformed"/>
       </Events>
     </Component>

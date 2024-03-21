@@ -4,19 +4,29 @@
  */
 package com.publicom2.vue;
 import com.publicom2.controller.DeleteDialogController;
+import publicom2.model.Utilisateur;
 
 /**
  *
  * @author a.guillauma
  */
-public class DeleteUserDialog extends javax.swing.JDialog {
+public class DeleteUserDialog extends javax.swing.JDialog{
 
     private DeleteDialogController controller;
     
-    public DeleteUserDialog(java.awt.Frame parent, boolean modal) {
+    public DeleteUserDialog(java.awt.Frame parent, boolean modal){
         super(parent, modal);
+        try{
         this.controller = new DeleteDialogController(this);
+        }
+        catch(Exception exception){
+            
+        }
         initComponents();
+        //Récupère le nom de l'utilisateur sélectionné dans la vue de la liste des utilisateurs
+        String selectedUser = this.controller.getNameSelectedUserForDelete();
+        //Met à jour le texte du dialogue avec l'identifiant de l'utilisateur selectionné
+        this.labelDeleteUser3.setText("l'utilisateur " + selectedUser + " ?");
     }
 
     /**
@@ -65,6 +75,11 @@ public class DeleteUserDialog extends javax.swing.JDialog {
         buttonValidDelete.setBackground(new java.awt.Color(51, 255, 51));
         buttonValidDelete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonValidDelete.setText("Valider");
+        buttonValidDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonValidDeleteMouseClicked(evt);
+            }
+        });
         buttonValidDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonValidDeleteActionPerformed(evt);
@@ -125,10 +140,19 @@ public class DeleteUserDialog extends javax.swing.JDialog {
         this.controller.closeDeleteDialog();
     }//GEN-LAST:event_buttonCancelDeleteMouseClicked
 
+    private void buttonValidDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonValidDeleteMouseClicked
+        try {
+            this.controller.acceptDeleteDialog();
+        }
+        catch(Exception exception){
+            System.out.println(exception);
+        }
+    }//GEN-LAST:event_buttonValidDeleteMouseClicked
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]){
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -155,6 +179,7 @@ public class DeleteUserDialog extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 DeleteUserDialog dialog = new DeleteUserDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
