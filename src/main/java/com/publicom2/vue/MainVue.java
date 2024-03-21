@@ -9,6 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import com.publicom2.controller.MainViewController;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import publicom2.model.Utilisateur;
 
 /**
@@ -23,23 +25,48 @@ public class MainVue extends javax.swing.JFrame {
     private MainViewController controller;
     private DefaultTableModel modelTable;
 
-    public MainVue() throws Exception {
+    public MainVue() throws Exception{
         initComponents();
         //Instance du controlleur
         this.controller = new MainViewController( this);
+        //Ajoute les utilisateurs
+        this.addUserTableUser();
+        //Initialise les évenements de selection de la table
+        this.evenementSelectionTableUser();
+        
+    }
+    
+    public void addUserTableUser() throws Exception{
         //Liste des utilisateurs
         this.modelTable = (DefaultTableModel)this.tableUserList.getModel();
+        //Initialise les colonnes de la table
         this.modelTable.addColumn("Identifiant");
         this.modelTable.addColumn("Nom");
         this.modelTable.addColumn("Prenom");
+        //Ajoute les lignes
         for (Utilisateur user : this.controller.listUser()){
             this.modelTable.addRow(new String[] {user.getUsernameUser(), user.getFirstNameUser(), user.getNameUser()});
 
         }
     }
     
-    public void addUserTableUser(){
-        
+    public void evenementSelectionTableUser(){
+        //Evenement Selection des lignes
+        //Récupération du modèle de selection de la table
+        var modelTableSelection = this.tableUserList.getSelectionModel();
+        //Ajout 
+        modelTableSelection.addListSelectionListener(new ListSelectionListener(){
+            public void valueChanged(ListSelectionEvent e){
+                if(modelTableSelection.isSelectionEmpty()){
+                    buttonUpdateUser.setEnabled(false);
+                    buttonDeleteUser.setEnabled(false);
+                }
+                else{
+                    buttonUpdateUser.setEnabled(true);
+                    buttonDeleteUser.setEnabled(true);
+                }
+            }
+        });
     }
 
     /**
