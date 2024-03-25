@@ -91,7 +91,7 @@ public class UtilisateurDAO {
 
     public void update(Utilisateur oneUser) throws SQLException {
 
-        String query = "UPDATE utilisateur SET IDENTIFIANTUTILISATEUR = ? , MOTDEPASSEUTILISATEUR = ?, NOMUTILISATEUR = ?, PRENOMUTILISATEUR = ?";
+        String query = "UPDATE utilisateur SET IDENTIFIANTUTILISATEUR = ? , MOTDEPASSEUTILISATEUR = ?, NOMUTILISATEUR = ?, PRENOMUTILISATEUR = ? WHERE IDUTILISATEUR = ?";
 
         try (PreparedStatement stmt = this.connexion.prepareStatement(query)) {
 
@@ -99,8 +99,9 @@ public class UtilisateurDAO {
             stmt.setString(2, oneUser.getPasswordUser());
             stmt.setString(3, oneUser.getNameUser());
             stmt.setString(4, oneUser.getFirstNameUser());
+            stmt.setInt(5, oneUser.getIdUser());
 
-            stmt.executeUpdate(query);
+            stmt.executeUpdate();
 
             stmt.close();
         } catch (Exception e) {

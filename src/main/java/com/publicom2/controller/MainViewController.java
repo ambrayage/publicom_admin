@@ -59,11 +59,16 @@ public class MainViewController {
     
     public void goToUpdateView(){
         //Créer la fenêtre de modification d'un utilisateur
-        UpdateUser updateView = new UpdateUser(this.mainVue.getSelectedUser());
+        try{
+        UpdateUser updateView = new UpdateUser(this.dao.get(this.mainVue.getSelectedUser().getIdUser()));
         //Rend visible la fenêtre de modification d'un utilisateur
         updateView.setVisible(true);
         //Supprime la fenêtre précédente
         this.mainVue.dispose();
+        }
+        catch(Exception exception){
+            System.out.println(exception);
+        }
     }
     
     public void goToDeleteDialog() throws Exception{

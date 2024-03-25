@@ -50,7 +50,7 @@ public class MainVue extends javax.swing.JFrame {
         this.modelTable.setRowCount(0);
         //Ajoute les lignes
         for (Utilisateur user : this.controller.listUser()){
-            this.modelTable.addRow(new String[] {Integer.toString(user.getIdUser()),user.getUsernameUser(), user.getFirstNameUser(), user.getNameUser()});
+            this.modelTable.addRow(new String[] {Integer.toString(user.getIdUser()),user.getUsernameUser(), user.getNameUser(), user.getFirstNameUser()});
         }
     }
     

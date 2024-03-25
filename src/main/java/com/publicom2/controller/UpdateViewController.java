@@ -5,6 +5,8 @@
 package com.publicom2.controller;
 import com.publicom2.vue.UpdateUser;
 import com.publicom2.vue.MainVue;
+import publicom2.model.Utilisateur;
+import publicom2.model.UtilisateurDAO;
 
 /**
  *
@@ -14,6 +16,7 @@ public class UpdateViewController {
     
     //Vue de modification d'un utilisateur
     private UpdateUser updateView;
+    private UtilisateurDAO utilisateurDAO;
     
     //Constructeur
     /* Paramètre :
@@ -21,6 +24,15 @@ public class UpdateViewController {
     */
     public UpdateViewController(UpdateUser updateView){
         this.updateView = updateView;
+        try {
+        this.utilisateurDAO = new UtilisateurDAO();
+        }catch(Exception exception){
+            System.out.println(exception);
+        }
+    }
+    
+    public void acceptUpdateUser(Utilisateur user) throws Exception{
+        this.utilisateurDAO.update(user);
     }
     
     public void backToMainView() throws Exception{
