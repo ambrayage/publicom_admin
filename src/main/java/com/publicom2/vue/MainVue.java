@@ -103,7 +103,16 @@ public class MainVue extends javax.swing.JFrame {
         labelUserList.setToolTipText("");
         labelUserList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        tableUserList.setModel(new DefaultTableModel());
+        tableUserList.setModel(new DefaultTableModel(){
+            //Ecrit par dessus la fonction isCellEditable deja existante
+            //Lorsque l'utilisateur cliquera sur une cellule, la table verifira
+            //si la cellule est editable, mais cette fonction renvoie toujours false, donc
+            //aucune celle ne sera editable
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }}
+        );
         jScrollPane1.setViewportView(tableUserList);
 
         buttonUpdateUser.setBackground(new java.awt.Color(255, 204, 153));
