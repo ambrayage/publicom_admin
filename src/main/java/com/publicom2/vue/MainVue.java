@@ -43,9 +43,10 @@ public class MainVue extends javax.swing.JFrame {
         this.addUserTableUser();
         //Initialise les évenements de selection de la table
         this.evenementSelectionTableUser();
+        
         //Definit l'editeur de la table à null
         //Les cellules ne sont donc plus editable
-        this.tableUserList.setDefaultEditor(Object.class, null);
+        //this.tableUserList.setDefaultEditor(Object.class, null);
         
     }
     
