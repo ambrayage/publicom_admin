@@ -40,7 +40,7 @@ public class AddView extends javax.swing.JFrame {
 
     //Retourne le mot de passe du nouvel utilisateur
     private String getMdp() {
-        return this.WriteMdp.getText();
+        return this.WriteMdp.getPassword().toString();
     }
 
     /**
@@ -58,9 +58,9 @@ public class AddView extends javax.swing.JFrame {
         txtMdp = new javax.swing.JLabel();
         WriteNom = new javax.swing.JTextField();
         WritePrenom = new javax.swing.JTextField();
-        WriteMdp = new javax.swing.JTextField();
         btnValider = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
+        WriteMdp = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add User");
@@ -93,12 +93,6 @@ public class AddView extends javax.swing.JFrame {
             }
         });
 
-        WriteMdp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WriteMdpActionPerformed(evt);
-            }
-        });
-
         btnValider.setText("Valider");
         btnValider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +104,12 @@ public class AddView extends javax.swing.JFrame {
         btnReturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReturnActionPerformed(evt);
+            }
+        });
+
+        WriteMdp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WriteMdpActionPerformed(evt);
             }
         });
 
@@ -133,10 +133,10 @@ public class AddView extends javax.swing.JFrame {
                             .addComponent(txtNom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(WritePrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(WriteNom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(WriteMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(WritePrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(WriteNom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(WriteMdp)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnReturn)))
@@ -177,10 +177,6 @@ public class AddView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_WritePrenomActionPerformed
 
-    private void WriteMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WriteMdpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_WriteMdpActionPerformed
-
     private void btnValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderActionPerformed
         //on récupère le nom saisi par l'utilisateur
         String name = this.getNom();
@@ -210,6 +206,10 @@ public class AddView extends javax.swing.JFrame {
             Logger.getLogger(AddView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnReturnActionPerformed
+
+    private void WriteMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WriteMdpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_WriteMdpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,7 +248,7 @@ public class AddView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField WriteMdp;
+    private javax.swing.JPasswordField WriteMdp;
     private javax.swing.JTextField WriteNom;
     private javax.swing.JTextField WritePrenom;
     private javax.swing.JButton btnReturn;

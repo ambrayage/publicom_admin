@@ -21,10 +21,11 @@ public class UpdateUser extends javax.swing.JFrame {
         initComponents();
         this.controller = new UpdateViewController(this);
         this.userUpdate = userUpdate;
-        this.jLabel1.setText(("Modifier l'utilisateur " + this.userUpdate.getUsernameUser()));
-        this.tfFirstname.setText(this.userUpdate.getUsernameUser());
-        this.tfFirstname1.setText(this.userUpdate.getFirstNameUser());
-        this.tfFirstname2.setText(this.userUpdate.getNameUser());
+        this.labelTitle.setText(("Modifier l'utilisateur " + this.userUpdate.getUsernameUser()));
+        this.tfIdentifer.setText(this.userUpdate.getUsernameUser());
+        this.tfName.setText(this.userUpdate.getNameUser());
+        this.tfFirstName.setText(this.userUpdate.getFirstNameUser());
+        this.tfPassword.setText(this.userUpdate.getPasswordUser());
     }
 
     /**
@@ -36,21 +37,26 @@ public class UpdateUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tfFirstname = new javax.swing.JTextField();
+        tfIdentifer = new javax.swing.JTextField();
         jbUpdate = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        tfFirstname1 = new javax.swing.JTextField();
-        tfFirstname2 = new javax.swing.JTextField();
+        labelTitle = new javax.swing.JLabel();
+        tfName = new javax.swing.JTextField();
+        tfPassword = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        tfFirstName = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Update User");
         setBackground(new java.awt.Color(255, 255, 255));
 
-        tfFirstname.setToolTipText("");
-        tfFirstname.addActionListener(new java.awt.event.ActionListener() {
+        tfIdentifer.setToolTipText("");
+        tfIdentifer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFirstnameActionPerformed(evt);
+                tfIdentiferActionPerformed(evt);
             }
         });
 
@@ -63,21 +69,21 @@ public class UpdateUser extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Modifier l'utilisateur <nom>");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        labelTitle.setBackground(new java.awt.Color(102, 102, 102));
+        labelTitle.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        labelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelTitle.setText("Modifier l'utilisateur <nom>");
+        labelTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        tfFirstname1.addActionListener(new java.awt.event.ActionListener() {
+        tfName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFirstname1ActionPerformed(evt);
+                tfNameActionPerformed(evt);
             }
         });
 
-        tfFirstname2.addActionListener(new java.awt.event.ActionListener() {
+        tfPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFirstname2ActionPerformed(evt);
+                tfPasswordActionPerformed(evt);
             }
         });
 
@@ -88,45 +94,86 @@ public class UpdateUser extends javax.swing.JFrame {
             }
         });
 
+        tfFirstName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfFirstNameActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Identifiant");
+
+        jLabel3.setText("Nom");
+
+        jLabel4.setText("Prenom");
+
+        jLabel5.setText("Mot de passe");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(370, 370, 370))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfFirstname1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tfFirstname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(tfFirstname2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(80, 80, 80))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jbUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(136, 136, 136))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(331, 331, 331)
+                                        .addComponent(jbUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(275, 275, 275)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tfIdentifer, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(tfFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(80, 80, 80))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(24, 24, 24)
+                            .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(371, 371, 371)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(372, 372, 372)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(384, 384, 384)
+                        .addComponent(jLabel3)))
                 .addContainerGap(193, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(tfFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(tfFirstname1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tfFirstname2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfIdentifer, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jbUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addGap(16, 16, 16))
         );
@@ -138,17 +185,17 @@ public class UpdateUser extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbUpdateActionPerformed
 
-    private void tfFirstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFirstnameActionPerformed
+    private void tfIdentiferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdentiferActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfFirstnameActionPerformed
+    }//GEN-LAST:event_tfIdentiferActionPerformed
 
-    private void tfFirstname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFirstname1ActionPerformed
+    private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfFirstname1ActionPerformed
+    }//GEN-LAST:event_tfNameActionPerformed
 
-    private void tfFirstname2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFirstname2ActionPerformed
+    private void tfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfFirstname2ActionPerformed
+    }//GEN-LAST:event_tfPasswordActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         try {
@@ -157,6 +204,10 @@ public class UpdateUser extends javax.swing.JFrame {
             Logger.getLogger(UpdateUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void tfFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFirstNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfFirstNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,10 +246,15 @@ public class UpdateUser extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JButton jbUpdate;
-    private javax.swing.JTextField tfFirstname;
-    private javax.swing.JTextField tfFirstname1;
-    private javax.swing.JTextField tfFirstname2;
+    private javax.swing.JLabel labelTitle;
+    private javax.swing.JTextField tfFirstName;
+    private javax.swing.JTextField tfIdentifer;
+    private javax.swing.JTextField tfName;
+    private javax.swing.JTextField tfPassword;
     // End of variables declaration//GEN-END:variables
 }
