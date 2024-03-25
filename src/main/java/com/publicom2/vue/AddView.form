@@ -45,9 +45,9 @@
                       </Group>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="WritePrenom" pref="150" max="32767" attributes="0"/>
-                          <Component id="WriteNom" pref="150" max="32767" attributes="0"/>
-                          <Component id="WriteMdp" alignment="0" max="32767" attributes="0"/>
+                          <Component id="writePrenom" pref="150" max="32767" attributes="0"/>
+                          <Component id="writeNom" pref="150" max="32767" attributes="0"/>
+                          <Component id="writeMdp" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -67,17 +67,17 @@
               <EmptySpace pref="83" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtNom" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="WriteNom" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="writeNom" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="WritePrenom" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="writePrenom" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtMdp" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="WriteMdp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="writeMdp" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               <Component id="btnValider" min="-2" pref="59" max="-2" attributes="0"/>
@@ -124,14 +124,14 @@
         <Property name="text" type="java.lang.String" value="Mot de passe :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="WriteNom">
+    <Component class="javax.swing.JTextField" name="writeNom">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WriteNomActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="writeNomActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="WritePrenom">
+    <Component class="javax.swing.JTextField" name="writePrenom">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WritePrenomActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="writePrenomActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnValider">
@@ -150,9 +150,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReturnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="WriteMdp">
+    <Component class="javax.swing.JPasswordField" name="writeMdp">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WriteMdpActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="writeMdpActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

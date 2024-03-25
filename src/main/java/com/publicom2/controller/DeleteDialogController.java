@@ -24,22 +24,31 @@ public class DeleteDialogController{
         deleteView : dialogue de suppression d'un utilisateur
     */
     public DeleteDialogController(DeleteUserDialog deleteUserDialog) throws Exception{
+        //Récupere le dialogue DeleteUserDialog
         this.deleteUserDialog = deleteUserDialog;
+        //Instance du DAO Utilisateur
         this.utilisateurDAO = new UtilisateurDAO();
         
+        //Récupere la mainVue qui est le parent du dialogue DeleteUserDialog
         MainVue mainVue = (MainVue)this.deleteUserDialog.getParent();
+        //Récupere l'utilisateur selectionné dans la mainVue
         this.selectedUser =  mainVue.getSelectedUser();
     }
     
+    //Récupere l'identifiant de l'utilisateur
     public String getNameSelectedUserForDelete(){
         return this.selectedUser.getUsernameUser();
     }
     
+    //Supprime l'utilisateur grâce au DAO Utilisateur
     public void acceptDeleteDialog() throws Exception{
+        //Demande au DAO Utilisateur de supprimer l'utilisateur en lui donnant l'utilisateur selectionné dans la mainVue
         this.utilisateurDAO.delete(this.selectedUser);
+        //Ferme le dialogue DeleteUserDialog
         this.deleteUserDialog.dispose();
     }
     
+    //Ferme le dialogue DeleteUserDialog
     public void closeDeleteDialog(){
         //Supprimer le dialogue de suppression d'un utilisateur
         this.deleteUserDialog.dispose();

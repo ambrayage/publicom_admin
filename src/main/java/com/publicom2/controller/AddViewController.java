@@ -25,6 +25,7 @@ public class AddViewController {
         this.addView = addView;
     }
     
+    //Ouvre la vue mainVue puis ferme la vue addView
     public void backToMainView() throws Exception{
         //Créer la fenêtre de liste des utilisateurs
         MainVue mainView = new MainVue();
@@ -39,9 +40,9 @@ public class AddViewController {
         oneUser : objet Utilisateur contenant toutes les informations du nouvel utilisateur
     */
     public void addUser(Utilisateur oneUser) throws Exception{
-        
+        //Instance du DAO Utilisateur
         UtilisateurDAO dao = new UtilisateurDAO();
-        
+        //Demande au DAO Utilisateur d'ajouter l'utilisateur
         dao.create(oneUser);
         
     }

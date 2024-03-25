@@ -31,10 +31,16 @@ public class UpdateViewController {
         }
     }
     
+    //Modifie l'utilisateur grâce au DAO Utilisateur
+    /* Paramètre :
+    user : utilisateur avec l'id inchangé et l'identifiant, nom, prenom et mot de passe modifié
+    */
     public void acceptUpdateUser(Utilisateur user) throws Exception{
+        //Demande au DAO Utilisateur de modifier l'utilisateur
         this.utilisateurDAO.update(user);
     }
     
+    //Ouvre la vue mainVue puis ferme la vue updateView
     public void backToMainView() throws Exception{
         //Création de la fenêtre de liste des utilisateurs
         MainVue mainView = new MainVue();

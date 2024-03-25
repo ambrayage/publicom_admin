@@ -48,6 +48,7 @@ public class MainViewController {
         }
     }
     
+    //Ouvre la vue AddView puis ferme la vue mainVue
     public void goToAddView(){
         //Créer la fenêtre d'ajout d'un utilisateur
         AddView addView = new AddView();
@@ -57,6 +58,7 @@ public class MainViewController {
         this.mainVue.dispose();
     }
     
+    //Ouvre la vue UpdateView puis ferme la vue mainVue
     public void goToUpdateView(){
         //Créer la fenêtre de modification d'un utilisateur
         try{
@@ -71,17 +73,19 @@ public class MainViewController {
         }
     }
     
+    //Ouvre le dialogue DeleteUserDialog
     public void goToDeleteDialog() throws Exception{
         //Créer le dialogue de suppression d'un utilisateur
         DeleteUserDialog deleteUserDialog = new DeleteUserDialog(this.mainVue, true);
         //Affiche le dialogue
         deleteUserDialog.setVisible(true);
-        
+        //Recharge le tableau des utilisateurs de la mainVue
         this.mainVue.addUserTableUser();
     }
     
+    //Renvoie la liste des utilisateurs à la vue
     public List<Utilisateur> listUser() throws Exception{
-        //Renvoie la liste des utilisateurs à la vue
+        //Demande au DAO Utilisateur de fournir la liste des utilisateurs
         return this.dao.getAll();
     }
 }

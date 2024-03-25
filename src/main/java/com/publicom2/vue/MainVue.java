@@ -46,13 +46,13 @@ public class MainVue extends javax.swing.JFrame {
         
         //Definit l'editeur de la table à null
         //Les cellules ne sont donc plus editable
-        //this.tableUserList.setDefaultEditor(Object.class, null);
+        this.tableUserList.setDefaultEditor(Object.class, null);
         
     }
     
     public void addUserTableUser() throws Exception{
         this.modelTable.setRowCount(0);
-        //Ajoute les lignes
+        //Ajoute les lignes pour chaque utilisateur dans la liste donnée par le controlleur
         for (Utilisateur user : this.controller.listUser()){
             this.modelTable.addRow(new String[] {Integer.toString(user.getIdUser()),user.getUsernameUser(), user.getNameUser(), user.getFirstNameUser()});
         }

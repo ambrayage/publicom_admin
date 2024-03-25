@@ -30,17 +30,17 @@ public class AddView extends javax.swing.JFrame {
 
     //Retourne le nom du nouvel utilisateur
     private String getNom() {
-        return this.WriteNom.getText();
+        return this.writeNom.getText();
     }
 
     //Retourne le prenom du nouvel utilisateur
     private String getPrenom() {
-        return this.WritePrenom.getText();
+        return this.writePrenom.getText();
     }
 
     //Retourne le mot de passe du nouvel utilisateur
     private String getMdp() {
-        return this.WriteMdp.getPassword().toString();
+        return String.valueOf(this.writeMdp.getPassword());
     }
 
     /**
@@ -56,11 +56,11 @@ public class AddView extends javax.swing.JFrame {
         txtNom = new javax.swing.JLabel();
         txtPrenom = new javax.swing.JLabel();
         txtMdp = new javax.swing.JLabel();
-        WriteNom = new javax.swing.JTextField();
-        WritePrenom = new javax.swing.JTextField();
+        writeNom = new javax.swing.JTextField();
+        writePrenom = new javax.swing.JTextField();
         btnValider = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
-        WriteMdp = new javax.swing.JPasswordField();
+        writeMdp = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add User");
@@ -81,15 +81,15 @@ public class AddView extends javax.swing.JFrame {
         txtMdp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtMdp.setText("Mot de passe :");
 
-        WriteNom.addActionListener(new java.awt.event.ActionListener() {
+        writeNom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WriteNomActionPerformed(evt);
+                writeNomActionPerformed(evt);
             }
         });
 
-        WritePrenom.addActionListener(new java.awt.event.ActionListener() {
+        writePrenom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WritePrenomActionPerformed(evt);
+                writePrenomActionPerformed(evt);
             }
         });
 
@@ -107,9 +107,9 @@ public class AddView extends javax.swing.JFrame {
             }
         });
 
-        WriteMdp.addActionListener(new java.awt.event.ActionListener() {
+        writeMdp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                WriteMdpActionPerformed(evt);
+                writeMdpActionPerformed(evt);
             }
         });
 
@@ -134,9 +134,9 @@ public class AddView extends javax.swing.JFrame {
                             .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(56, 56, 56)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(WritePrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(WriteNom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(WriteMdp)))
+                            .addComponent(writePrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(writeNom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(writeMdp)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnReturn)))
@@ -150,15 +150,15 @@ public class AddView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNom)
-                    .addComponent(WriteNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(writeNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPrenom)
-                    .addComponent(WritePrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(writePrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMdp)
-                    .addComponent(WriteMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(writeMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59)
                 .addComponent(btnValider, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
@@ -169,13 +169,13 @@ public class AddView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void WriteNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WriteNomActionPerformed
+    private void writeNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_writeNomActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_WriteNomActionPerformed
+    }//GEN-LAST:event_writeNomActionPerformed
 
-    private void WritePrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WritePrenomActionPerformed
+    private void writePrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_writePrenomActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_WritePrenomActionPerformed
+    }//GEN-LAST:event_writePrenomActionPerformed
 
     private void btnValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderActionPerformed
         //on récupère le nom saisi par l'utilisateur
@@ -189,9 +189,9 @@ public class AddView extends javax.swing.JFrame {
         //Création d'un objet Utilisateur représentant le nouvel utilisateur
         //Avec le nouvel identifiant, nom, prenom et mot de passe
         Utilisateur user = new Utilisateur(username, password, name, firstName);
-        
+        //Instance du controlleur
         AddViewController controller = new AddViewController(this);
-
+        //Demande au controlleur d'ajouter l'utilisateur
         try {
             controller.addUser(user);
         } catch (Exception ex) {
@@ -200,6 +200,7 @@ public class AddView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnValiderActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        //Demande au controlleur de revenir à la vue mainVue
         try {
             this.controller.backToMainView();
         } catch (Exception ex) {
@@ -207,9 +208,9 @@ public class AddView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnReturnActionPerformed
 
-    private void WriteMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WriteMdpActionPerformed
+    private void writeMdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_writeMdpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_WriteMdpActionPerformed
+    }//GEN-LAST:event_writeMdpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,14 +249,14 @@ public class AddView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField WriteMdp;
-    private javax.swing.JTextField WriteNom;
-    private javax.swing.JTextField WritePrenom;
     private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnValider;
     private javax.swing.JLabel txtDemande;
     private javax.swing.JLabel txtMdp;
     private javax.swing.JLabel txtNom;
     private javax.swing.JLabel txtPrenom;
+    private javax.swing.JPasswordField writeMdp;
+    private javax.swing.JTextField writeNom;
+    private javax.swing.JTextField writePrenom;
     // End of variables declaration//GEN-END:variables
 }

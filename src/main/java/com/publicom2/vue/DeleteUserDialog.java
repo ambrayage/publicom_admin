@@ -13,15 +13,24 @@ import publicom2.model.Utilisateur;
 public class DeleteUserDialog extends javax.swing.JDialog{
 
     private DeleteDialogController controller;
-    
+    /*
+        Classe DeleteUserDialog
+        Dialogue pur valider la suppression d'un utilisateur
+        Paramètre :
+            parent : la vue parente du dialogue
+            modal : true si la vue parente de peut plus rien faire tant que le dialogue est ouvert, false sinon
+    */
     public DeleteUserDialog(java.awt.Frame parent, boolean modal){
+        //Récupere les fonctions et variables de la classe mère (JDialog)
         super(parent, modal);
         try{
+        //Instance du controlleur
         this.controller = new DeleteDialogController(this);
         }
         catch(Exception exception){
-            
+            System.out.println(exception);
         }
+        //Initialise les composants du dialogue
         initComponents();
         //Récupère le nom de l'utilisateur sélectionné dans la vue de la liste des utilisateurs
         String selectedUser = this.controller.getNameSelectedUserForDelete();
@@ -141,6 +150,7 @@ public class DeleteUserDialog extends javax.swing.JDialog{
     }//GEN-LAST:event_buttonCancelDeleteMouseClicked
 
     private void buttonValidDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonValidDeleteMouseClicked
+        //Demande au controlleur de confirmer la suppression de l'utilisateur
         try {
             this.controller.acceptDeleteDialog();
         }
