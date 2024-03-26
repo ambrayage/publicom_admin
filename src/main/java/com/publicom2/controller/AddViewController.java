@@ -42,8 +42,10 @@ public class AddViewController {
         oneUser : objet Utilisateur contenant toutes les informations du nouvel utilisateur
     */
     public void addUser(Utilisateur oneUser) throws Exception{
+        
         //Instance du DAO Utilisateur
         UtilisateurDAO dao = new UtilisateurDAO();
+        
         //Vérifie que l'utilisateur avec le même identifiant n'existe pas
         boolean identifierAlreadyExist = false;
         List<Utilisateur> listUsers = dao.getAll();
@@ -53,9 +55,11 @@ public class AddViewController {
                 identifierAlreadyExist = true;
             }
         }
+        //Si l'identifiant existe déjà
         if (identifierAlreadyExist == true){
             this.addView.setTxtStateAddUser("L'utilisateur avec l'identifiant " + oneUser.getUsernameUser() + " existe déjà");
         }
+        //Sinon
         else{
             //Demande au DAO Utilisateur d'ajouter l'utilisateur
             dao.create(oneUser);

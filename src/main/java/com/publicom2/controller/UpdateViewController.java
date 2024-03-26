@@ -45,14 +45,18 @@ public class UpdateViewController {
                 identifierAlreadyExist = true;
             }
         }
+        //Si l'identifiant existe déjà
         if (identifierAlreadyExist == true){
             this.updateView.setTxtStateUpdateUser("L'utilisateur avec l'identifiant " + user.getUsernameUser() + " existe déjà");
         }
+        //Sinon
         else{
+            //Si l'utilisateur à choisi de modifier le mot de passe
             if (this.updateView.getStateCheckBoxPassword()){
                 //Demande au DAO Utilisateur de modifier l'utilisateur
                 this.utilisateurDAO.updateWithPassword(user);
             }
+            //Sinon
             else{
                 this.utilisateurDAO.updateWithNoPassword(user);
             }
