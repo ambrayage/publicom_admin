@@ -44,6 +44,9 @@ public class AddViewController {
         UtilisateurDAO dao = new UtilisateurDAO();
         //Demande au DAO Utilisateur d'ajouter l'utilisateur
         dao.create(oneUser);
+        //Ferme la vue AddView et ouvre la vue mainVue
+        this.backToMainView();
         
     }
+    
 }

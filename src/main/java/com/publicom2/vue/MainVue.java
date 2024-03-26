@@ -51,6 +51,9 @@ public class MainVue extends javax.swing.JFrame {
     }
     
     public void addUserTableUser() throws Exception{
+        //Définit le nombre de ligne de la table à 0
+        //De ce fait, la table est reinitialisée
+        //Utile après le dialogue DeleteUserDialog pour actualiser la table
         this.modelTable.setRowCount(0);
         //Ajoute les lignes pour chaque utilisateur dans la liste donnée par le controlleur
         for (Utilisateur user : this.controller.listUser()){
@@ -58,6 +61,8 @@ public class MainVue extends javax.swing.JFrame {
         }
     }
     
+    //Fonction pour activer un bouton si une ligne est selectionnée
+    //et désactiver un bouton si aucune ligne n'est selectionnée
     public void evenementSelectionTableUser(){
         //Evenement Selection des lignes
         //Récupération du modèle de selection de la table

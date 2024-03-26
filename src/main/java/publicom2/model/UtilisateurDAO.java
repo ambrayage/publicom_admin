@@ -11,6 +11,7 @@ import java.util.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -26,12 +27,13 @@ public class UtilisateurDAO {
 
     }
 
+    //Créer un nouvel utilisateur
     public void create(Utilisateur oneUser) throws SQLException {
         String query = "INSERT INTO utilisateur (IDENTIFIANTUTILISATEUR, MOTDEPASSEUTILISATEUR, NOMUTILISATEUR, PRENOMUTILISATEUR) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement stmt = this.connexion.prepareStatement(query)) {
             stmt.setString(1, oneUser.getUsernameUser());
-            stmt.setString(2, oneUser.getPasswordUser());
+            stmt.setString(2, this.hash(oneUser.getPasswordUser()));
             stmt.setString(3, oneUser.getNameUser());
             stmt.setString(4, oneUser.getFirstNameUser());
 
@@ -39,6 +41,7 @@ public class UtilisateurDAO {
         }
     }
 
+    //Retourne les informations d'un utilisateur à partir de son ID
     public Utilisateur get(Integer idUser) throws SQLException {
 
         Utilisateur oneUser = null;
@@ -64,6 +67,7 @@ public class UtilisateurDAO {
         return oneUser;
     }
 
+    //Retourne la liste des utilisateurs
     public List<Utilisateur> getAll() throws SQLException {
 
         ArrayList<Utilisateur> users = new ArrayList<Utilisateur>();
@@ -89,6 +93,7 @@ public class UtilisateurDAO {
 
     }
 
+    //Modifie les informations d'un utilisateur à partir de son ID
     public void update(Utilisateur oneUser) throws SQLException {
 
         String query = "UPDATE utilisateur SET IDENTIFIANTUTILISATEUR = ? , MOTDEPASSEUTILISATEUR = ?, NOMUTILISATEUR = ?, PRENOMUTILISATEUR = ? WHERE IDUTILISATEUR = ?";
@@ -96,7 +101,7 @@ public class UtilisateurDAO {
         try (PreparedStatement stmt = this.connexion.prepareStatement(query)) {
 
             stmt.setString(1, oneUser.getUsernameUser());
-            stmt.setString(2, oneUser.getPasswordUser());
+            stmt.setString(2, this.hash(oneUser.getPasswordUser()));
             stmt.setString(3, oneUser.getNameUser());
             stmt.setString(4, oneUser.getFirstNameUser());
             stmt.setInt(5, oneUser.getIdUser());
@@ -110,6 +115,7 @@ public class UtilisateurDAO {
 
     }
 
+    //Supprime un utilisateur à partir de son ID
     public void delete(Integer idUser) throws SQLException {
 
         Statement stmt = this.connexion.createStatement();
@@ -121,6 +127,7 @@ public class UtilisateurDAO {
         stmt.close();
     }
 
+    //Supprime un utilisateur à partir de son ID
     public void delete(Utilisateur oneUser) throws SQLException {
 
         Statement stmt = this.connexion.createStatement();
@@ -130,5 +137,13 @@ public class UtilisateurDAO {
         stmt.executeUpdate(query);
 
         stmt.close();
+    }
+    
+    //Fonction pour hasher une chaine de caractère
+    public String hash(String password) {
+        //Genere le sel (pour proteger le hash d'une attaque par dictionnaire multicolore)
+	String salt = BCrypt.gensalt(12);
+        //Hash la chaine de caractère avec le sel géneré
+	return BCrypt.hashpw(password, salt);
     }
 }

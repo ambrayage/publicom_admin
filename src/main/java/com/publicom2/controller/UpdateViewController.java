@@ -38,6 +38,8 @@ public class UpdateViewController {
     public void acceptUpdateUser(Utilisateur user) throws Exception{
         //Demande au DAO Utilisateur de modifier l'utilisateur
         this.utilisateurDAO.update(user);
+        //Ferme la vue UpdateUser et ouvre la vue mainVue
+        this.backToMainView();
     }
     
     //Ouvre la vue mainVue puis ferme la vue updateView
