@@ -117,6 +117,11 @@ public class MainVue extends javax.swing.JFrame {
         labelUserList.setToolTipText("");
         labelUserList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 0), 2));
+        jScrollPane1.setForeground(new java.awt.Color(102, 51, 0));
+
+        tableUserList.setBackground(new java.awt.Color(153, 102, 0));
+        tableUserList.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 51, 0), 2, true));
         tableUserList.setModel(new DefaultTableModel()
         );
         jScrollPane1.setViewportView(tableUserList);
