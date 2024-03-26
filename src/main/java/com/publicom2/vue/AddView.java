@@ -7,6 +7,8 @@ package com.publicom2.vue;
 import com.publicom2.controller.AddViewController;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import publicom2.model.Utilisateur;
 import publicom2.model.UtilisateurDAO;
 
@@ -25,6 +27,10 @@ public class AddView extends javax.swing.JFrame {
         initComponents();
         //Instance du controlleur
         this.controller = new AddViewController(this);
+        //Ajoute des listeners aux champs de saisie Nom et Prenom pour actualiser le label identifiant
+        this.addListenerTextChangeTextFieldNomAndPrenom();
+        
+
     }
 //ajout methodes getter
 
@@ -47,7 +53,42 @@ public class AddView extends javax.swing.JFrame {
     public void setTxtStateAddUser(String textStateAddUser){
         this.txtStateAddUser.setText(textStateAddUser);
 }
-
+    
+    private void updateTxtIdentifier(){
+        this.txtIdentifier.setText("Identifiant : " + this.getNom() + "." + this.getPrenom());
+    }
+    
+    private void addListenerTextChangeTextFieldNomAndPrenom(){
+            this.writeNom.getDocument().addDocumentListener(new DocumentListener()
+        {
+            public void changedUpdate(DocumentEvent e){
+                updateTxtIdentifier();
+            }
+            
+            public void removeUpdate(DocumentEvent e){
+                this.changedUpdate(e);
+            }
+                        
+            public void insertUpdate(DocumentEvent e){
+                this.changedUpdate(e);
+            }
+        });
+        
+        this.writePrenom.getDocument().addDocumentListener(new DocumentListener()
+        {
+            public void changedUpdate(DocumentEvent e){
+                updateTxtIdentifier();
+            }
+            
+            public void removeUpdate(DocumentEvent e){
+                this.changedUpdate(e);
+            }
+                        
+            public void insertUpdate(DocumentEvent e){
+                this.changedUpdate(e);
+            }
+        });
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,6 +108,7 @@ public class AddView extends javax.swing.JFrame {
         btnReturn = new javax.swing.JButton();
         writeMdp = new javax.swing.JPasswordField();
         txtStateAddUser = new javax.swing.JLabel();
+        txtIdentifier = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add User");
@@ -86,12 +128,6 @@ public class AddView extends javax.swing.JFrame {
         txtMdp.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtMdp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtMdp.setText("Mot de passe :");
-
-        writeNom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                writeNomActionPerformed(evt);
-            }
-        });
 
         writePrenom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +158,9 @@ public class AddView extends javax.swing.JFrame {
         txtStateAddUser.setForeground(new java.awt.Color(255, 0, 51));
         txtStateAddUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        txtIdentifier.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtIdentifier.setText("Identifiant : ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,19 +177,22 @@ public class AddView extends javax.swing.JFrame {
                             .addComponent(txtDemande)
                             .addComponent(btnReturn)))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(txtStateAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(90, 90, 90)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtMdp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtNom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(writePrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(writeNom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(writeMdp)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(txtStateAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtIdentifier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtMdp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtNom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(56, 56, 56)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(writePrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(writeNom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(writeMdp))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -158,7 +200,9 @@ public class AddView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(txtDemande)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
+                .addComponent(txtIdentifier)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNom)
                     .addComponent(writeNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -181,10 +225,6 @@ public class AddView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void writeNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_writeNomActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_writeNomActionPerformed
 
     private void writePrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_writePrenomActionPerformed
         // TODO add your handling code here:
@@ -265,6 +305,7 @@ public class AddView extends javax.swing.JFrame {
     private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnValider;
     private javax.swing.JLabel txtDemande;
+    private javax.swing.JLabel txtIdentifier;
     private javax.swing.JLabel txtMdp;
     private javax.swing.JLabel txtNom;
     private javax.swing.JLabel txtPrenom;

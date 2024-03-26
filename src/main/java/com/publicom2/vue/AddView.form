@@ -40,22 +40,27 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtMdp" max="32767" attributes="0"/>
-                          <Component id="txtNom" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtPrenom" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="writePrenom" pref="150" max="32767" attributes="0"/>
-                          <Component id="writeNom" pref="150" max="32767" attributes="0"/>
-                          <Component id="writeMdp" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                       <Component id="txtStateAddUser" min="-2" pref="309" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtIdentifier" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtMdp" max="32767" attributes="0"/>
+                                  <Component id="txtNom" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtPrenom" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="writePrenom" pref="150" max="32767" attributes="0"/>
+                                  <Component id="writeNom" pref="150" max="32767" attributes="0"/>
+                                  <Component id="writeMdp" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -67,7 +72,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtDemande" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="99" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Component id="txtIdentifier" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtNom" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="writeNom" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -130,9 +137,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="writeNom">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="writeNomActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="writePrenom">
       <Events>
@@ -166,6 +170,14 @@
           <Color blue="33" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="txtIdentifier">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Identifiant : "/>
       </Properties>
     </Component>
   </SubComponents>

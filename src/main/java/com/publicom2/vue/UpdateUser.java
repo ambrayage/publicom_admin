@@ -29,6 +29,7 @@ public class UpdateUser extends javax.swing.JFrame {
         this.txtPassword.setVisible(false);
         this.tfPassword.setVisible(false);
     }
+    
     //Getter
     public boolean getStateCheckBoxPassword(){
         return this.checkBoxUpdatePassword.isSelected();
