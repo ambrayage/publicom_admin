@@ -94,7 +94,7 @@ public class UtilisateurDAO {
     }
 
     //Modifie les informations d'un utilisateur à partir de son ID
-    public void update(Utilisateur oneUser) throws SQLException {
+    public void updateWithPassword(Utilisateur oneUser) throws SQLException {
 
         String query = "UPDATE utilisateur SET IDENTIFIANTUTILISATEUR = ? , MOTDEPASSEUTILISATEUR = ?, NOMUTILISATEUR = ?, PRENOMUTILISATEUR = ? WHERE IDUTILISATEUR = ?";
 
@@ -105,6 +105,27 @@ public class UtilisateurDAO {
             stmt.setString(3, oneUser.getNameUser());
             stmt.setString(4, oneUser.getFirstNameUser());
             stmt.setInt(5, oneUser.getIdUser());
+
+            stmt.executeUpdate();
+
+            stmt.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+    
+        //Modifie les informations d'un utilisateur à partir de son ID
+    public void updateWithNoPassword(Utilisateur oneUser) throws SQLException {
+
+        String query = "UPDATE utilisateur SET IDENTIFIANTUTILISATEUR = ? , NOMUTILISATEUR = ?, PRENOMUTILISATEUR = ? WHERE IDUTILISATEUR = ?";
+
+        try (PreparedStatement stmt = this.connexion.prepareStatement(query)) {
+
+            stmt.setString(1, oneUser.getUsernameUser());
+            stmt.setString(2, oneUser.getNameUser());
+            stmt.setString(3, oneUser.getFirstNameUser());
+            stmt.setInt(4, oneUser.getIdUser());
 
             stmt.executeUpdate();
 

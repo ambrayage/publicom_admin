@@ -41,7 +41,7 @@ public class UpdateViewController {
         boolean identifierAlreadyExist = false;
         List<Utilisateur> listUsers = this.utilisateurDAO.getAll();
         for (Utilisateur oneExistingUser : listUsers){
-            if (oneExistingUser.getUsernameUser().equals(user.getUsernameUser())){
+            if (oneExistingUser.getUsernameUser().equals(user.getUsernameUser()) && oneExistingUser.getIdUser() != user.getIdUser()){
                 identifierAlreadyExist = true;
             }
         }
@@ -49,8 +49,13 @@ public class UpdateViewController {
             this.updateView.setTxtStateUpdateUser("L'utilisateur avec l'identifiant " + user.getUsernameUser() + " existe déjà");
         }
         else{
-        //Demande au DAO Utilisateur de modifier l'utilisateur
-        this.utilisateurDAO.update(user);
+            if (this.updateView.getStateCheckBoxPassword()){
+                //Demande au DAO Utilisateur de modifier l'utilisateur
+                this.utilisateurDAO.updateWithPassword(user);
+            }
+            else{
+                this.utilisateurDAO.updateWithNoPassword(user);
+            }
         //Ferme la vue UpdateUser et ouvre la vue mainVue
         this.backToMainView();
         }
