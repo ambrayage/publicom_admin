@@ -4,6 +4,7 @@
  */
 package com.publicom2.vue;
 import com.publicom2.controller.UpdateViewController;
+import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import publicom2.model.Utilisateur;
@@ -28,6 +29,8 @@ public class UpdateUser extends javax.swing.JFrame {
         
         this.txtPassword.setVisible(false);
         this.tfPassword.setVisible(false);
+        
+        this.getContentPane().setBackground(new Color(205,133,63));
     }
     
     //Getter

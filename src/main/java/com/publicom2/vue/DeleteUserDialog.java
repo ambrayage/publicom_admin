@@ -4,6 +4,7 @@
  */
 package com.publicom2.vue;
 import com.publicom2.controller.DeleteDialogController;
+import java.awt.Color;
 import publicom2.model.Utilisateur;
 
 /**
@@ -36,6 +37,8 @@ public class DeleteUserDialog extends javax.swing.JDialog{
         String selectedUser = this.controller.getNameSelectedUserForDelete();
         //Met à jour le texte du dialogue avec l'identifiant de l'utilisateur selectionné
         this.labelDeleteUser3.setText("l'utilisateur " + selectedUser + " ?");
+        
+        this.getContentPane().setBackground(new Color(205,133,63));
     }
 
     /**
@@ -54,6 +57,8 @@ public class DeleteUserDialog extends javax.swing.JDialog{
         buttonValidDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setForeground(new java.awt.Color(255, 255, 255));
 
         labelDeleteUser1.setAlignment(java.awt.Label.CENTER);
         labelDeleteUser1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N

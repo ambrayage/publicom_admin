@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import com.publicom2.controller.MainViewController;
+import java.awt.Color;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import publicom2.model.Utilisateur;
@@ -48,6 +49,7 @@ public class MainVue extends javax.swing.JFrame {
         //Les cellules ne sont donc plus editable
         this.tableUserList.setDefaultEditor(Object.class, null);
         
+        this.getContentPane().setBackground(new Color(205,133,63));
     }
     
     public void addUserTableUser() throws Exception{
@@ -104,6 +106,9 @@ public class MainVue extends javax.swing.JFrame {
         buttonAddUser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Liste des utilisateurs");
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(51, 51, 255));
         setResizable(false);
 
         labelUserList.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N

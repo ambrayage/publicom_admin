@@ -5,6 +5,7 @@
 package com.publicom2.vue;
 
 import com.publicom2.controller.AddViewController;
+import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.event.DocumentEvent;
@@ -30,7 +31,7 @@ public class AddView extends javax.swing.JFrame {
         //Ajoute des listeners aux champs de saisie Nom et Prenom pour actualiser le label identifiant
         this.addListenerTextChangeTextFieldNomAndPrenom();
         
-
+        this.getContentPane().setBackground(new Color(205,133,63));
     }
 //ajout methodes getter
 
