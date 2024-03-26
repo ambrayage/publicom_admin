@@ -42,6 +42,11 @@ public class AddView extends javax.swing.JFrame {
     private String getMdp() {
         return String.valueOf(this.writeMdp.getPassword());
     }
+    
+//Setter
+    public void setTxtStateAddUser(String textStateAddUser){
+        this.txtStateAddUser.setText(textStateAddUser);
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,6 +66,7 @@ public class AddView extends javax.swing.JFrame {
         btnValider = new javax.swing.JButton();
         btnReturn = new javax.swing.JButton();
         writeMdp = new javax.swing.JPasswordField();
+        txtStateAddUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add User");
@@ -113,6 +119,9 @@ public class AddView extends javax.swing.JFrame {
             }
         });
 
+        txtStateAddUser.setForeground(new java.awt.Color(255, 0, 51));
+        txtStateAddUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,7 +134,9 @@ public class AddView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(txtDemande))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDemande)
+                            .addComponent(btnReturn)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(90, 90, 90)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -138,8 +149,8 @@ public class AddView extends javax.swing.JFrame {
                             .addComponent(writeNom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                             .addComponent(writeMdp)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnReturn)))
+                        .addGap(72, 72, 72)
+                        .addComponent(txtStateAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -147,7 +158,7 @@ public class AddView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(txtDemande)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNom)
                     .addComponent(writeNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -159,7 +170,9 @@ public class AddView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMdp)
                     .addComponent(writeMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtStateAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnValider, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(btnReturn)
@@ -255,6 +268,7 @@ public class AddView extends javax.swing.JFrame {
     private javax.swing.JLabel txtMdp;
     private javax.swing.JLabel txtNom;
     private javax.swing.JLabel txtPrenom;
+    private javax.swing.JLabel txtStateAddUser;
     private javax.swing.JPasswordField writeMdp;
     private javax.swing.JTextField writeNom;
     private javax.swing.JTextField writePrenom;

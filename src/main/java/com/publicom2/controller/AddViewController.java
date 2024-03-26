@@ -5,6 +5,8 @@
 package com.publicom2.controller;
 import com.publicom2.vue.AddView;
 import com.publicom2.vue.MainVue;
+import java.util.ArrayList;
+import java.util.List;
 import publicom2.model.Utilisateur;
 import publicom2.model.UtilisateurDAO;
 
@@ -42,11 +44,24 @@ public class AddViewController {
     public void addUser(Utilisateur oneUser) throws Exception{
         //Instance du DAO Utilisateur
         UtilisateurDAO dao = new UtilisateurDAO();
-        //Demande au DAO Utilisateur d'ajouter l'utilisateur
-        dao.create(oneUser);
-        //Ferme la vue AddView et ouvre la vue mainVue
-        this.backToMainView();
-        
+        //Vérifie que l'utilisateur avec le même identifiant n'existe pas
+        boolean identifierAlreadyExist = false;
+        List<Utilisateur> listUsers = dao.getAll();
+        for (Utilisateur user : listUsers){
+
+            if (user.getUsernameUser().equals(oneUser.getUsernameUser())){
+                identifierAlreadyExist = true;
+            }
+        }
+        if (identifierAlreadyExist == true){
+            this.addView.setTxtStateAddUser("L'utilisateur avec l'identifiant " + oneUser.getUsernameUser() + " existe déjà");
+        }
+        else{
+            //Demande au DAO Utilisateur d'ajouter l'utilisateur
+            dao.create(oneUser);
+            //Ferme la vue AddView et ouvre la vue mainVue
+            this.backToMainView();
+        }
     }
     
 }

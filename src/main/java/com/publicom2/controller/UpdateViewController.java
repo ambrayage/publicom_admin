@@ -5,6 +5,7 @@
 package com.publicom2.controller;
 import com.publicom2.vue.UpdateUser;
 import com.publicom2.vue.MainVue;
+import java.util.List;
 import publicom2.model.Utilisateur;
 import publicom2.model.UtilisateurDAO;
 
@@ -36,10 +37,23 @@ public class UpdateViewController {
     user : utilisateur avec l'id inchangé et l'identifiant, nom, prenom et mot de passe modifié
     */
     public void acceptUpdateUser(Utilisateur user) throws Exception{
+        //Verification que l'utilisateur n'existe pas déjà
+        boolean identifierAlreadyExist = false;
+        List<Utilisateur> listUsers = this.utilisateurDAO.getAll();
+        for (Utilisateur oneExistingUser : listUsers){
+            if (oneExistingUser.getUsernameUser().equals(user.getUsernameUser())){
+                identifierAlreadyExist = true;
+            }
+        }
+        if (identifierAlreadyExist == true){
+            this.updateView.setTxtStateUpdateUser("L'utilisateur avec l'identifiant " + user.getUsernameUser() + " existe déjà");
+        }
+        else{
         //Demande au DAO Utilisateur de modifier l'utilisateur
         this.utilisateurDAO.update(user);
         //Ferme la vue UpdateUser et ouvre la vue mainVue
         this.backToMainView();
+        }
     }
     
     //Ouvre la vue mainVue puis ferme la vue updateView
